@@ -15,5 +15,14 @@ namespace Testing1
             //test to see that it exits
             Assert.IsNotNull(Anproduct);
         }
+
+        [TestMethod]
+        public void I1()
+        {
+            //create an instance of the class we want to create
+            clsproduct Anproduct = new clsproduct();
+            //test to see that it exits
+            Assert.IsNotNull(Anproduct);
+        }
     }
 }
