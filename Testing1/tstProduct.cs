@@ -16,7 +16,20 @@ namespace Testing1
             Assert.IsNotNull(Anproduct);
         }
         [TestMethod]
-        public void Product_AvailabilityePropertyOK()
+        public void ActivePropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsProduct AnProduct = new clsProduct();
+            //create some test data to assign to the property
+            Boolean TestData = true;
+            //assign the data to the property
+            AnProduct.Active = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnProduct.Active, TestData);
+        }
+
+        [TestMethod]
+        public void Product_AvailabilityPropertyOK()
         {
             //create an instance of the class we want to create
             clsProduct AnProduct = new clsProduct();

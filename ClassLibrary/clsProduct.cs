@@ -11,5 +11,6 @@ namespace ClassLibrary
         public int Producct_Price { get; set; }
         public DateTime Launch_Data { get; set; }
         public bool Product_Availability { get; set; }
+        public bool Active { get; set; }
     }
 }
