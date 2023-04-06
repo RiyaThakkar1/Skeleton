@@ -113,6 +113,122 @@ namespace Testing1
             Assert.AreEqual(AnProduct.Launch_Data, TestData);
         }
 
+        
+        //new test
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Int32 Product_Id = 1;
+            Found = AnProduct.Find(Product_Id);
+            Assert.IsTrue(Found);
+
+        }
+        //test product ID
+        [TestMethod]
+        public void TestProduct_IdNotFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 Product_Id = 1;
+            Found = AnProduct.Find(Product_Id);
+            if (AnProduct.Product_Id != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        //product name
+        [TestMethod]
+        public void TestProduct_NameFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 Product_Id = 1;
+            Found = AnProduct.Find(Product_Id);
+            if (AnProduct.product_Name != "CSK Jersey")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        //product price
+        [TestMethod]
+        public void TestProducct_PriceFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 Product_Id = 1;
+            Found = AnProduct.Find(Product_Id);
+            if (AnProduct.producct_Price != 20)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        //product decription 
+        [TestMethod]
+        public void TestProduct_DescriptionFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 Product_Id = 1;
+            Found = AnProduct.Find(Product_Id);
+            if (AnProduct.product_Description != "Long sleeve")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        //product launch date
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 Product_Id = 1;
+            Found = AnProduct.Find(Product_Id);
+            if (AnProduct.Launch_Date != Convert.ToDateTime("31/03/2023"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        
+        
+        //product avaliblity 
+        [TestMethod]
+        public void TestProduct_AvailabilityFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 Product_Id = 1;
+            Found = AnProduct.Find(Product_Id);
+            if (AnProduct.product_Availability != false)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+
+
+
+
+
     }
 
 }
