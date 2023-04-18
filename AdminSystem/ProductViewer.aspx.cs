@@ -18,7 +18,7 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from session object 
         AnProduct = (clsProduct)Session["AnProduct"];
         //disply the product name for this entry 
-        Response.Write(AnProduct.Product_ID);
+        Response.Write(AnProduct.Product_Id);
         //disply the product name for this entry 
         Response.Write(AnProduct.Product_Name);
         //disply the product name for this entry 
@@ -26,7 +26,7 @@ public partial class _1Viewer : System.Web.UI.Page
         //disply the product name for this entry 
         Response.Write(AnProduct.Product_Description);
         //disply the product name for this entry 
-        Response.Write(AnProduct.Launch_Data);
+        Response.Write(AnProduct.Launch_Date);
         //disply the product name for this entry 
         Response.Write(AnProduct.Product_Availability); 
         

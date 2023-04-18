@@ -60,9 +60,9 @@ namespace Testing1
             //create some test data to assign to the property
             Int32 TestData = 1;
             //assign the data to the property
-            AnProduct.Product_ID = TestData;
+            AnProduct.Product_Id = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnProduct.Product_ID, TestData);
+            Assert.AreEqual(AnProduct.Product_Id, TestData);
         }
         [TestMethod]
         public void Product_NamePropertyOK()
@@ -108,9 +108,9 @@ namespace Testing1
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            AnProduct.Launch_Data = TestData;
+            AnProduct.Launch_Date = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnProduct.Launch_Data, TestData);
+            Assert.AreEqual(AnProduct.Launch_Date, TestData);
         }
 
         
@@ -150,7 +150,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 Product_Id = 1;
             Found = AnProduct.Find(Product_Id);
-            if (AnProduct.product_Name != "CSK Jersey")
+            if (AnProduct.Product_Name != "CSK Jersey")
             {
                 OK = false;
             }
@@ -167,7 +167,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 Product_Id = 1;
             Found = AnProduct.Find(Product_Id);
-            if (AnProduct.producct_Price != 20)
+            if (AnProduct.Producct_Price != 20)
             {
                 OK = false;
             }
@@ -182,7 +182,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 Product_Id = 1;
             Found = AnProduct.Find(Product_Id);
-            if (AnProduct.product_Description != "Long sleeve")
+            if (AnProduct.Product_Description != "Long sleeve")
             {
                 OK = false;
             }
@@ -216,7 +216,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 Product_Id = 1;
             Found = AnProduct.Find(Product_Id);
-            if (AnProduct.product_Availability != false)
+            if (AnProduct.Product_Availability != false)
             {
                 OK = false;
             }
