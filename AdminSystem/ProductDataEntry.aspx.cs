@@ -19,13 +19,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsProduct
         clsProduct AnProduct = new clsProduct();
         //caputre the house number
-        AnProduct.Product_ID = Convert.ToInt32(txtProductID.Text);
+        AnProduct.Product_Id = Convert.ToInt32(txtProductID.Text);
         AnProduct.Product_Name = txtProductName.Text;
         AnProduct.Producct_Price = Convert.ToInt32(txtProductPrice.Text);
         //AnProduct.Producct_Price = Convert.ToDouble(txtProductPrice.Text);
         //AnProduct.Producct_Price = Convert.ToDecimal(txtProductPrice.Text);
         AnProduct.Product_Description = txtProductDecription.Text;
-        AnProduct.Launch_Data = Convert.ToDateTime(txtLaunchData.Text);
+        AnProduct.Launch_Date = Convert.ToDateTime(txtLaunchData.Text);
         //AnProduct.DateAdded = Convert.ToDateTime(txtLaunchData.Text);
         AnProduct.Product_Availability = Convert.ToBoolean(txtProductAvailability.Text);
         AnProduct.Active = chkActive.Checked;
