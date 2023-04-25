@@ -98,7 +98,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string orderName, string orderPrice, string orderDate, string customerID)
+        public string Valid(string orderName, string orderDate)
         {
             //create a string variable to store the error
             String Error = "";

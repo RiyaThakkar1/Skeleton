@@ -8,21 +8,34 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsOrders
+        //create a new instance of clsOrder
         clsOrders AnOrder = new clsOrders();
         //capture the OrderName
-        AnOrder.OrderName = txtOrderName.Text;
-        //store the order in the session object
-        Session["AnOrder"] = AnOrder;
-        //navigate to the viewer panner
-        Response.Redirect("OrderViewer.aspx");
+        string OrderName = txtOrderName.Text;
+        //capture the OrderDate
+        string OrderDate = txtOrderDate.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnOrder.Valid(OrderName, OrderDate);
+        if (Error == "")
+        {
+            //capture the OrderName
+            AnOrder.OrderName = OrderName;
+            //capture the OrderDate
+            AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
+            //store the order in the session object
+            Session["AnOrder"] = AnOrder;
+            //redirect to the viewer page
+            Response.Write("Order.Viewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -50,3 +63,4 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
     }
 }
+
