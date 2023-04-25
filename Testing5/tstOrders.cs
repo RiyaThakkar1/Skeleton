@@ -218,7 +218,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //invoke the method
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -233,7 +233,7 @@ namespace Testing5
             //create some test data to pass to the method
             string OrderName = ""; //this should trigger an error
             //invoke the method 
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -248,7 +248,7 @@ namespace Testing5
             //create some test data to pass to the method
             string OrderName = ""; //this should trigger an error
             //invoke the method 
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -263,7 +263,7 @@ namespace Testing5
             //create some test data to pass to the method
             string OrderName = ""; //this should trigger an error
             //invoke the method 
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -278,7 +278,7 @@ namespace Testing5
             //create some test data to pass to the method
             string OrderName = ""; //this should trigger an error
             //invoke the method 
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -293,7 +293,7 @@ namespace Testing5
             //create some test data to pass to the method
             string OrderName = ""; //this should trigger an error
             //invoke the method 
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -308,7 +308,7 @@ namespace Testing5
             //create some test data to pass to the method
             string OrderName = ""; //this should trigger an error
             //invoke the method 
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -323,7 +323,7 @@ namespace Testing5
             //create some test data to pass to the method
             string OrderName = ""; //this should trigger an error
             //invoke the method 
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -339,7 +339,7 @@ namespace Testing5
             string OrderName = ""; //this should trigger an error
             OrderName = OrderName.PadRight(500, 'a');//this should fail
             //invoke the method 
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -360,7 +360,7 @@ namespace Testing5
             //convert the date variable to a string variable
             string OrderDate = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, ""); 
         }
@@ -381,7 +381,7 @@ namespace Testing5
             //convert the date variable to a string variable
             string OrderDate = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -400,7 +400,7 @@ namespace Testing5
             //convert the date variable to a string variable
             string OrderDate = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -422,7 +422,7 @@ namespace Testing5
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -443,7 +443,7 @@ namespace Testing5
             //convert the date variable to a string variable
             string OrderDate = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -459,7 +459,7 @@ namespace Testing5
             //convert the date variable to a string variable
             string OrderDate = "This is not a date";
             //invoke the method
-            Error = AnOrder.Valid(OrderName, OrderPrice, OrderDate, CustomerID);
+            Error = AnOrder.Valid(OrderName, OrderDate);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
