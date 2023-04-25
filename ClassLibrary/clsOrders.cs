@@ -19,7 +19,7 @@ namespace ClassLibrary
                 mOrderID = value;
             }
         }
-        public string mOrderName;
+        private string mOrderName;
         public string OrderName
         {
             get
@@ -31,7 +31,7 @@ namespace ClassLibrary
                 mOrderName = value;
             }
         }
-        public decimal mOrderPrice;
+        private decimal mOrderPrice;
         public decimal OrderPrice
         {
             get
@@ -43,7 +43,7 @@ namespace ClassLibrary
                 mOrderPrice = value;
             }
         }
-        public DateTime mOrderDate;
+        private DateTime mOrderDate;
         public DateTime OrderDate
         {
             get
@@ -56,7 +56,7 @@ namespace ClassLibrary
                 mOrderDate = value;
             }
         }
-        public int mCustomerID;
+        private int mCustomerID;
         public int CustomerID
         {
             get
@@ -97,5 +97,51 @@ namespace ClassLibrary
                 return false;
             }
         }
-    }
+
+        public string Valid(string orderName, string orderPrice, string orderDate, string customerID)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable  to store date values
+            DateTime DateTemp;
+            //if the OrderName is blank
+            if (OrderName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The OrderName may not be blank :";
+            }
+            //if the OrderName is greater than 15 characters
+            if (OrderName.Length > 15)
+            {
+                //record the error
+                Error = Error + "The OrderName must be less than 15 characters : ";
+            }
+            try
+            { 
+            //copy the OrderDate value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(OrderDate);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the past : ";
+            }
+            //copy the OrderDate value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(OrderDate);
+            if (DateTemp > DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the future : ";
+            }
+        }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            //return any error messages
+            return Error;
+        }
+       
+        }
 }
