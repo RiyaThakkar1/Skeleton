@@ -8,6 +8,15 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        //create a new instance of clsOrder
+        clsOrders AnOrder = new clsOrders();
+        //get the data from the session object
+        AnOrder = (clsOrders)Session["AnOrder"];
+        //display the house number for this entry
+        Response.Write(AnOrder.OrderName);
+    }
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsOrder
