@@ -13,5 +13,6 @@ namespace ClassLibrary
         public string OrderID { get; set; }
         public string OrderQuantity { get; set; }
         public string OrderDescription { get; set; }
+        public string CustomerID { get; set; }
     }
 }
