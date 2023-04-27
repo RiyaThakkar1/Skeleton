@@ -8,6 +8,7 @@ using ClassLibrary;
 
 public partial class _1_List : System.Web.UI.Page
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //if this is the first time the page is displayed
@@ -31,7 +32,7 @@ public partial class _1_List : System.Web.UI.Page
         lstOrderList.DataBind();
     }
 
-    protected void btnAdd_Click1(object sender, EventArgs e)
+    protected void btnAdd_Click(object sender, EventArgs e)
     {
         //store -1 into the session object to indicate this is a new record
         Session["OrderID"] = -1;
@@ -78,5 +79,35 @@ public partial class _1_List : System.Web.UI.Page
             //display an error
             lblError.Text = "Please select a record to delete from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instance of the order collection
+        clsOrdersCollection Orders = new clsOrdersCollection();
+        Orders.ReportByOrderName(txtFilter.Text);
+        lstOrderList.DataSource = Orders.OrderList;
+        //set the name of the primary key
+        lstOrderList.DataValueField = "OrderID";
+        //set the name of the primary key
+        lstOrderList.DataTextField = "OrderName";
+        //bind the data to the list
+        lstOrderList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of the order collection
+        clsOrdersCollection Orders = new clsOrdersCollection();
+        Orders.ReportByOrderName("");
+        //clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+        lstOrderList.DataSource = Orders.OrderList;
+        //set the name of primary key
+        lstOrderList.DataValueField = "OrderID";
+        //set the name of the field to display
+        lstOrderList.DataTextField = "OrderName";
+        //bind the data to the list
+        lstOrderList.DataBind();
     }
 }
