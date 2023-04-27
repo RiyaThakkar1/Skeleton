@@ -54,32 +54,32 @@ namespace ClassLibrary
        //constructor for class
         public clsOrdersCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //object for the data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblOrders_SelectAll");
-            //get the count of records
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank order
-                clsOrders AnOrder = new clsOrders();
-                //read in the fields from the current record
-                AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
-                AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
-                AnOrder.OrderPrice =Convert.ToDecimal(DB.DataTable.Rows[Index]["OrderPrice"]);
-                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
-                AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                //add the record to the private data member
-                mOrderList.Add(AnOrder);
-                //point at the next record
-                Index++;
-            }
+                //var for the index
+                Int32 Index = 0;
+                //var to store the record count
+                Int32 RecordCount = 0;
+                //object for the data connection
+                clsDataConnection DB = new clsDataConnection();
+                //execute the stored procedure
+                DB.Execute("sproc_tblOrders_SelectAll");
+                //get the count of records
+                RecordCount = DB.Count;
+                //while there are records to process
+                while (Index < RecordCount)
+                {
+                    //create a blank order
+                    clsOrders AnOrder = new clsOrders();
+                    //read in the fields from the current record
+                    AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
+                    AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
+                    AnOrder.OrderPrice = Convert.ToDecimal(DB.DataTable.Rows[Index]["OrderPrice"]);
+                    AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                    AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
+                    //add the record to the private data member
+                    mOrderList.Add(AnOrder);
+                    //point at the next record
+                    Index++;
+                }         
         }
 
         public int Add()
@@ -120,6 +120,47 @@ namespace ClassLibrary
             DB.AddParameter("@OrderID", mThisOrder.OrderID);
             //execute the stored procedure
             DB.Execute("sproc_tblOrders_Delete");
+        }
+
+        public void ReportByOrderName(string OrderName)
+        {
+            //filters the records based on a full or partial order name
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the PostCode parameter to the database
+            DB.AddParameter("OrderName", OrderName);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrders_FilterByOrderName");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the count of the records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mOrderList = new List<clsOrders>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank order
+                clsOrders AnOrder = new clsOrders();
+                //read in the fields from the current record
+                AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
+                AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
+                AnOrder.OrderPrice = Convert.ToDecimal(DB.DataTable.Rows[Index]["OrderPrice"]);
+                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
+                //add the record to the private data member
+                mOrderList.Add(AnOrder);
+                //point at the next record
+                Index++;
+            }
         }
     }
 }
