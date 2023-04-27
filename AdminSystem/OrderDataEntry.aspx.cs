@@ -35,10 +35,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnOrder.OrderName = OrderName;
             //capture the OrderDate
             AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
-            //store the order in the session object
-            Session["AnOrder"] = AnOrder;
+            //create a new instance of the order collection
+            clsOrdersCollection OrderList = new clsOrdersCollection();
+            //set the ThisOrder property
+            OrderList.ThisOrder = AnOrder;
+            //add the new record
+            OrderList.Add();
             //redirect to the viewer page
-            Response.Write("Order.Viewer.aspx");
+            Response.Write("OrderList.aspx");
         }
         else
         {
