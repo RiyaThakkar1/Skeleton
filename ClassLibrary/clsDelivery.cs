@@ -10,6 +10,7 @@ namespace ClassLibrary
         public int order_availability;
         public bool order_confirmation;
         public DateTime order_date;
+        public string delivery_description;
 
         public bool Active { get; set; }
         public DateTime DateAdded { get; set; }
