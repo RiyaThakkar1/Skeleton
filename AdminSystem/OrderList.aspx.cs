@@ -11,7 +11,7 @@ public partial class _1_List : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //if this is the first time the page is displayed
-        if(IsPostBack ==false)
+        if (IsPostBack == false)
         {
             //update the list box
             DisplayOrder();
@@ -59,3 +59,24 @@ public partial class _1_List : System.Web.UI.Page
         }
 
     }
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be deleted
+        Int32 OrderID;
+        //if a record has been selected from the list
+        if (lstOrderList.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to be deleted
+            OrderID = Convert.ToInt32(lstOrderList.SelectedValue);
+            //store the data in the session object
+            Session["OrderID"] = OrderID;
+            //redirect to the delete page
+            Response.Redirect("OrderConfirmDelete.aspx");
+        }
+        else
+        {
+            //display an error
+            lblError.Text = "Please select a record to delete from the list";
+        }
+    }
+}
