@@ -6,7 +6,7 @@ namespace Testing4
 {
     [TestClass]
     public class tstMarketing
-    {
+    { 
         [TestMethod]
         public void InstanceOK()
 
@@ -28,7 +28,7 @@ namespace Testing4
             AnMarketing.Active = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnMarketing.Active, TestData);
-          
+
         }
         [TestMethod]
         public void DateAddedPropertyOK()
@@ -104,7 +104,88 @@ namespace Testing4
             Assert.AreEqual(AnMarketing.customer_satisfaction, TestData);
 
         }
-       
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsMarketing AnMarketing = new clsMarketing();
+            Boolean Found = false;
+            Int32 customer_id = 12302;
+            Found = AnMarketing.Find(customer_id);
+            Assert.IsTrue(Found);
+
+        }
+        [TestMethod]
+        public void Testcustomer_idFound()
+        {
+            clsMarketing AnMarketing = new clsMarketing();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 customer_id = 12302;
+            Found = AnMarketing.Find(customer_id);
+            if (AnMarketing.Customer_id != 12302)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            clsMarketing AnMarketing = new clsMarketing();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 customer_id = 12302;
+            Found = AnMarketing.Find(customer_id);
+            if (AnMarketing.Order_date != Convert.ToDateTime ("09/07/2022"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void Testorder_idFound()
+        {
+            clsMarketing AnMarketing = new clsMarketing();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 customer_id = 12302;
+            Found = AnMarketing.Find(customer_id);
+            if (AnMarketing.Order_id != 7)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void Testcustomer_nameFound()
+        {
+            clsMarketing AnMarketing = new clsMarketing();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 customer_id = 12302;
+            Found = AnMarketing.Find(customer_id);
+            if (AnMarketing.Customer_name != "Het")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void Testcustomer_satisfactionFound()
+        {
+            clsMarketing AnMarketing = new clsMarketing();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 customer_id = 12302;
+            Found = AnMarketing.Find(customer_id);
+            if (AnMarketing.Customer_satisfaction != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
 
     }
 }
